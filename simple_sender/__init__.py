@@ -1,4 +1,5 @@
 import smtplib
+from os.path import basename
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -26,7 +27,11 @@ class Notify:
             self.attch = MIMEBase('application', "octet-stream")
             self.attch.set_payload(open(attach_file, 'rb').read())
             encode_base64(self.attch)
-            self.attch.add_header('Content-Disposition', 'attachment', filename=attach_file)
+            self.attch.add_header(
+                'Content-Disposition',
+                'attachment',
+                filename=basename(attach_file)
+            )
             self.msg.attach(self.attch)
         # add message text
         self.msg.attach(MIMEText(message))

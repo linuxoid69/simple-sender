@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='simple-sender',
-      version='0.1',
+      version='0.1.1',
       description='Simple-sender this is wrapper smtplib',
       url='https://github.com/linuxoid69/simple-sender',
       author='Rustam Tagaev',
